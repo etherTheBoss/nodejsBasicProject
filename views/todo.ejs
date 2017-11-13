@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>nodejs</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/core.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="/assets/todo-list.js"></script>
     <link href="/assets/styles.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+    <h1>New Item Add</h1>
     <div id="todo-table">
         <form>
-            <input type="text" name="item" placeholder="add a name" required>
+            <input type="text" name="item" placeholder="add items.." required>
             <button type="submit">add item</button>
         </form>
         <ul>
-            <li>Item one</li>
-            <li>Item two</li>
-            <li>Item three</li>
+            <% for(var i=0; i < todos.length; i++){ %>
+                <li><%= todos[i].item  %></li>
+            <% } %>
         </ul>
     </div>
 </body>
