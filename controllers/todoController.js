@@ -7,6 +7,20 @@
  */
 
  var bodyParser = require('body-parser');
+ var mongoose = require('mongoose');
+
+//  CONNECT TO DATABASE
+mongoose.connect('mongodb://nodejsbasicproject:nodejsbasicproject@ds257495.mlab.com:57495/nodejs_basic_project');
+
+// CREATE A SCHEMA 
+var todoSchema = new mongoose.Schema({item: String});
+
+var Todo = mongoose.model('Todo', todoSchema);
+
+var itemOne = Todo({item: 'ethe the boss'}).save(function(err){
+    if (err) throw err;
+    console.log('data has been saved successfully');
+});
 
  var data =[{item :'milk'},{item: 'apple'}, {item: 'grap'}];
  var urlencodedParser = bodyParser.urlencoded({extended: false});
